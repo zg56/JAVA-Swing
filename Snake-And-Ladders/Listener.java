@@ -1,5 +1,5 @@
 package snakes;
-
+// Zoltan Gercsak - Snakes and ladders game
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.util.concurrent.ThreadLocalRandom;
-
+// extend the ActionListener class to customize the click events
 public class Listener implements ActionListener {
 	Board snakeBoard;
 	int randomNum;
