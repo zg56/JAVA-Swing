@@ -1,13 +1,15 @@
 package snakes;
-
+// Zoltan Gercsak - Snakes and ladders game
 import java.awt.*;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
 import javax.swing.*;
 
+// Set up the board and the display for the game
 public class Board {
 
+	// initialize the Swing components
 	JFrame frame = new JFrame("Snakes & Ladders");
 	JLabel diceLabel = new JLabel();
 	JLabel boardPiece[] = new JLabel[101];
@@ -49,6 +51,7 @@ public class Board {
 	}
 
 
+	// swing worker to run the dice animation in the background
 	SwingWorker<Boolean, Void> worker = new SwingWorker<Boolean, Void>() {
 		@Override
 		protected Boolean doInBackground() throws Exception {
@@ -173,10 +176,12 @@ public class Board {
 		url = Board.class.getResource("/Pictures/dice.gif");
 		diceIcon = new ImageIcon(url);
 
+		// execute the swing worker initialized above
 		worker.execute();
 
 		frame.add(diceLabel);
 
+		// set up the roll dice button
 		rollButton = new JButton();
 		rollButton.setBounds(930, 350, 120, 40);
 		rollButton.setText("");
@@ -195,6 +200,7 @@ public class Board {
 		Font font2 = new Font("Times New Roman", Font.BOLD, 18);
 		Font font3 = new Font("Times New Roman", Font.BOLD, 30);
 
+		// set the fonts
 		tf1.setFont(font);
 		playerTurn.setFont(font2);
 		tf2.setFont(font);
@@ -203,6 +209,7 @@ public class Board {
 		diceLabel.setFont(font1);
 		frame.setLayout(null);
 
+		// set up the learn more button
 		learnMore = new JButton();
 		url = Board.class.getResource("/Pictures/learnmore.png");
 		learnMore.setIcon(new ImageIcon(url));
@@ -210,6 +217,7 @@ public class Board {
 		learnMore.setBounds(930, 20, 120, 40);
 		frame.add(learnMore);
 
+		// set up the reset board button
 		reset = new JButton("");
 		url = Board.class.getResource("/Pictures/resetboard.png");
 		reset.setIcon(new ImageIcon(url));
@@ -218,6 +226,7 @@ public class Board {
 		reset.setBackground(Color.BLUE);
 		frame.add(reset);
 
+		// set the layout on the JFrame
 		frame.setLayout(null);
 		frame.setLayout(null);
 		frame.setVisible(true);
